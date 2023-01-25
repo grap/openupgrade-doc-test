@@ -37,8 +37,14 @@ done
 # OPENUPGRADE_PYTHON_PATH=$DOC_BUILD_DIR/../../
 # /home/runner/work/openupgrade-doc-test/openupgrade-doc-test/openupgrade/docs/../../
 
+OPENUPGRADE_PYTHON_PATH=$DOC_BUILD_DIR/../
+echo $OPENUPGRADE_PYTHON_PATH
+
 # export PYTHONPATH=$PYTHONPATH:$OPENUPGRADE_PYTHON_PATH/odoo
 # :/home/runner/work/openupgrade-doc-test/openupgrade-doc-test/openupgrade/docs/../..//odoo
+
+export PYTHONPATH=$PYTHONPATH:$OPENUPGRADE_PYTHON_PATH/odoo
+echo $PYTHONPATH
 
 mkdir -p $DOC_BUILD_DIR/source/.static
 
