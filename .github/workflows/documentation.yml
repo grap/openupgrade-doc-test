@@ -38,6 +38,9 @@ jobs:
       - name: Check out OpenUpgrade
         uses: actions/checkout@v2
         with:
+          repository: grap/OpenUpgrade
+          ref: "16.0-test-doc"
+          fetch-depth: 1
           path: openupgrade
       - name: Configuration
         run: |
@@ -68,4 +71,4 @@ jobs:
       - name: OpenUpgrade Docs
         run: |
           # try to build the documentation
-          sh ./build_openupgrade_docs
+          sh openupgrade/build_openupgrade_docs

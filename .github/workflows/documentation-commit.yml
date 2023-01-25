@@ -36,10 +36,13 @@ jobs:
           ref: "16.0"
           fetch-depth: 1
           path: odoo
-      # - name: Check out OpenUpgrade
-      #   uses: actions/checkout@v2
-      #   with:
-      #     path: openupgrade
+      - name: Check out OpenUpgrade
+        uses: actions/checkout@v2
+        with:
+          repository: grap/OpenUpgrade
+          ref: "16.0-test-doc"
+          fetch-depth: 1
+          path: openupgrade
       - name: Configuration
         run: |
           sudo apt update
@@ -69,7 +72,7 @@ jobs:
       - name: OpenUpgrade Docs
         run: |
           # try to build the documentation
-          sh ./build_openupgrade_docs
+          sh openupgrade/build_openupgrade_docs
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
