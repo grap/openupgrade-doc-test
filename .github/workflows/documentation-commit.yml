@@ -24,7 +24,7 @@ jobs:
       - name: OpenUpgrade Docs
         run: |
           # try to build the documentation
-          sh openupgrade/build_openupgrade_docs
+          sh ./build_openupgrade_docs
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
