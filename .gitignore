@@ -68,6 +68,7 @@ coverage.xml
 docs/_build/
 docs/_sources/
 docs/.doctrees
+docs/.buildinfo
 docsource/modules50-60.rst
 docsource/modules60-61.rst
 docsource/modules61-70.rst
@@ -78,6 +79,8 @@ docsource/modules100-110.rst
 docsource/modules110-120.rst
 docsource/modules120-130.rst
 docsource/modules130-140.rst
+docsource/modules140-150.rst
+docsource/modules150-160.rst
 
 # Backup files
 *~

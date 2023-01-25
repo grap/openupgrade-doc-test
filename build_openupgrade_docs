@@ -1,7 +1,7 @@
 #!/bin/sh
 
-DOC_BUILD_DIR=${DOC_BUILD_DIR:-$(realpath $(dirname $0)/../openupgrade/docs)}
-SOURCE=$(realpath $(dirname $0)/../openupgrade/docsource)
+DOC_BUILD_DIR=${DOC_BUILD_DIR:-$(realpath $(dirname $0)/./docs)}
+SOURCE=$(realpath $(dirname $0)/./docsource)
 BASE_URL=https://raw.githubusercontent.com/OCA/OpenUpgrade/
 DOC_PARTS="7.0/openerp/openupgrade/doc/source/modules50-60.rst
 7.0/openerp/openupgrade/doc/source/modules60-61.rst
@@ -14,6 +14,7 @@ DOC_PARTS="7.0/openerp/openupgrade/doc/source/modules50-60.rst
 13.0/odoo/openupgrade/doc/source/modules120-130.rst
 14.0/docsource/modules130-140.rst
 15.0/docsource/modules140-150.rst
+16.0/docsource/modules150-160.rst
 "
 OUTPUT_DIR=${OUTPUT_DIR:-$DOC_BUILD_DIR}
 
