@@ -20,7 +20,7 @@ jobs:
           python-version: '3.10'
         run: |
           pip install --ignore-installed \
-              git+https://github.com/OCA/openupgradelib.git@master
+              git+https://github.com/legalsylvain/openupgradelib.git@legalsylvain-various-fixes-openupgrade-doc
           pip install sphinx
       - name: OpenUpgrade Docs
         run: |
