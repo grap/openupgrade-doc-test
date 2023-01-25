@@ -71,4 +71,4 @@ jobs:
       - name: OpenUpgrade Docs
         run: |
           # try to build the documentation
-          sh openupgrade/build_openupgrade_docs
+          sh ./build_openupgrade_docs

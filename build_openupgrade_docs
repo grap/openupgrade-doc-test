@@ -1,7 +1,15 @@
 #!/bin/sh
 
-DOC_BUILD_DIR=${DOC_BUILD_DIR:-$(realpath $(dirname $0)/../openupgrade/docs)}
-SOURCE=$(realpath $(dirname $0)/../openupgrade/docsource)
+# DOC_BUILD_DIR=${DOC_BUILD_DIR:-$(realpath $(dirname $0)/../openupgrade/docs)}
+# /home/runner/work/openupgrade-doc-test/openupgrade-doc-test/openupgrade/docs
+DOC_BUILD_DIR=$(realpath $(dirname $0)/./docs)
+echo $DOC_BUILD_DIR
+
+# SOURCE=$(realpath $(dirname $0)/../openupgrade/docsource)
+# /home/runner/work/openupgrade-doc-test/openupgrade-doc-test/openupgrade/docsource
+SOURCE=$(realpath $(dirname $0)/./docsource)
+echo $SOURCE
+
 BASE_URL=https://raw.githubusercontent.com/OCA/OpenUpgrade/
 DOC_PARTS="7.0/openerp/openupgrade/doc/source/modules50-60.rst
 7.0/openerp/openupgrade/doc/source/modules60-61.rst
@@ -17,6 +25,7 @@ DOC_PARTS="7.0/openerp/openupgrade/doc/source/modules50-60.rst
 16.0/docsource/modules150-160.rst
 "
 OUTPUT_DIR=${OUTPUT_DIR:-$DOC_BUILD_DIR}
+echo $OUTPUT_DIR
 
 for line in $DOC_PARTS; do
     if [ -z "$line" ]; then
@@ -25,7 +34,12 @@ for line in $DOC_PARTS; do
     name=$(basename $line)
     wget -q $BASE_URL/$line -O $SOURCE/$name
 done
-OPENUPGRADE_PYTHON_PATH=$DOC_BUILD_DIR/../../
-export PYTHONPATH=$PYTHONPATH:$OPENUPGRADE_PYTHON_PATH/odoo
+# OPENUPGRADE_PYTHON_PATH=$DOC_BUILD_DIR/../../
+# /home/runner/work/openupgrade-doc-test/openupgrade-doc-test/openupgrade/docs/../../
+
+# export PYTHONPATH=$PYTHONPATH:$OPENUPGRADE_PYTHON_PATH/odoo
+# :/home/runner/work/openupgrade-doc-test/openupgrade-doc-test/openupgrade/docs/../..//odoo
+
 mkdir -p $DOC_BUILD_DIR/source/.static
+
 python3 -m sphinx -W -q -d $DOC_BUILD_DIR/.doctrees $SOURCE $OUTPUT_DIR
