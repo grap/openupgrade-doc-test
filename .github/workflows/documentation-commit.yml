@@ -8,6 +8,8 @@ name: Build and commit documentation
 on:
   push:
     branches: ["master"]
+  schedule: # Schedule the job to run each hour
+    - cron: '0 * * * *'
 
 jobs:
   documentation:
