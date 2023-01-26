@@ -6,4 +6,4 @@ on:
 
 jobs:
   call-workflow-documentation-branch:
-    uses: OCA/OpenUpgrade/.github/workflows/documentation-commit.yml@documentation
+    uses: grap/openupgrade-doc-test/.github/workflows/documentation-commit.yml@documentation
