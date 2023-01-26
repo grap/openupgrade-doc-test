@@ -7,7 +7,7 @@ name: Build and commit documentation
 
 on:
   push:
-    branches: ["16.0"]
+    branches: ["master"]
 
 jobs:
   documentation:
@@ -24,6 +24,7 @@ jobs:
       PGPASSWORD: "odoo"
       PGUSER: "odoo"
     steps:
+      - uses: actions/checkout@v2
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -35,10 +36,13 @@ jobs:
           ref: "16.0"
           fetch-depth: 1
           path: odoo
-      - name: Check out OpenUpgrade
-        uses: actions/checkout@v2
-        with:
-          path: openupgrade
+      # - name: Check out OpenUpgrade
+      #   uses: actions/checkout@v2
+      #   with:
+      #     repository: grap/OpenUpgrade
+      #     ref: "16.0-test-doc"
+      #     fetch-depth: 1
+      #     path: openupgrade
       - name: Configuration
         run: |
           sudo apt update
@@ -63,16 +67,16 @@ jobs:
         run: |
           pip install -q -r odoo/requirements.txt
           pip install --ignore-installed \
-              git+https://github.com/OCA/openupgradelib.git@master
+              git+https://github.com/legalsylvain/openupgradelib.git@master-fix-openupgrade-70-import
           pip install sphinx
       - name: OpenUpgrade Docs
         run: |
           # try to build the documentation
-          sh openupgrade/build_openupgrade_docs
+          sh ./build_openupgrade_docs
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
           add: "docs"
-          cwd: "openupgrade"
+          # cwd: "openupgrade"
           default_author: github_actions
           message: "[UPD] HTML documentation"
