@@ -1,6 +1,8 @@
 Introduction
 ============
 
+TEST. TEST. TEST !
+
 Odoo is an open source business application suite and development platform.
 This project, *OpenUpgrade*, aims to provide an Open Source upgrade path for
 Odoo. This is a community initiative, as the open source version of Odoo
