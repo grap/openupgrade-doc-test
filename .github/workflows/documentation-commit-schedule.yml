@@ -1,16 +1,25 @@
+# Regularly build documentation present on the 'documentation'
+# branch.
+# Add, commit and push 'docs' folder if changed occured.
+# That can be the case
+# - if coverage files present in each branch of OCA/openupgrade changed
+# - if OCA/openupgradelib changed
+
 name: Schedule - Build, Commit and Push Documentation
 
 on:
+  # TODO: Change the value to run the task each days
   schedule: # Schedule the job to run each 5 minutes
   - cron: '*/15 * * * *'
 
 jobs:
-  schedule-documentation-build-commit:
+  documentation-commit-schedule:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           ref: "documentation"
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -42,6 +51,9 @@ jobs:
               python3-werkzeug \
               python3-yaml \
               unixodbc-dev
+        # TODO : switch the openupgradelib url
+        # to https://github.com/OCA/openupgradelib.git@master
+        # once https://github.com/OCA/openupgradelib/pull/314 is merged
       - name: Requirements Installation
         run: |
           pip install -q -r odoo/requirements.txt
@@ -52,6 +64,7 @@ jobs:
         run: |
           # try to build the documentation
           sh ./build_openupgrade_docs
+
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
