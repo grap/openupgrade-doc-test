@@ -69,7 +69,7 @@ jobs:
         run: |
           pip install -q -r odoo/requirements.txt
           pip install --ignore-installed \
-              git+https://github.com/legalsylvain/openupgradelib.git@master-fix-openupgrade-70-import
+              git+https://github.com/legalsylvain/openupgradelib.git@master-fix-description
           pip install sphinx
       - name: OpenUpgrade Docs
         run: |
