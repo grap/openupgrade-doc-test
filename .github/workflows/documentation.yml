@@ -11,17 +11,6 @@ on:
 jobs:
   documentation:
     runs-on: ubuntu-latest
-    env:
-      DB: "openupgrade"
-      DB_HOST: "localhost"
-      DB_PASSWORD: "odoo"
-      DB_PORT: 5432
-      DB_USERNAME: "odoo"
-      DOWNLOADS: https://github.com/OCA/OpenUpgrade/releases/download/databases
-      ODOO: "./odoo/odoo-bin"
-      PGHOST: "localhost"
-      PGPASSWORD: "odoo"
-      PGUSER: "odoo"
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python
@@ -35,13 +24,6 @@ jobs:
           ref: "16.0"
           fetch-depth: 1
           path: odoo
-      # - name: Check out OpenUpgrade
-      #   uses: actions/checkout@v2
-      #   with:
-      #     repository: grap/OpenUpgrade
-      #     ref: "16.0-test-doc"
-      #     fetch-depth: 1
-      #     path: openupgrade
       - name: Configuration
         run: |
           sudo apt update
