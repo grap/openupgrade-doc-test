@@ -27,6 +27,9 @@ for line in $DOC_PARTS; do
     wget -q $BASE_URL/$line -O $SOURCE_DIR/$name
 done
 
+# FOR TEST
+wget -q https://raw.githubusercontent.com/grap/OpenUpgrade/16.0-TEST-documentation-refactor/docsource/modules150-160.rst -O $SOURCE_DIR/modules150-160.rst
+
 export PYTHONPATH=$PYTHONPATH:$ODOO_PYTHON_PATH
 
 mkdir -p $OUTPUT_DIR/source/.static
