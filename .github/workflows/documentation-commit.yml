@@ -7,7 +7,7 @@ name: Build and commit documentation
 
 on:
   push:
-    branches: ["master"]
+    branches: ["documentation"]
   # We schedule regular documentation update to fetch the up-to-date
   # coverage files of each OpenUpgrade version.
   schedule: # Schedule the job to run each hour
