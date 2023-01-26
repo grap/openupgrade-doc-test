@@ -1,0 +1,50 @@
+name: Documentation Build
+
+on:
+  workflow_call: # Make the workflow callable by other workflow
+
+jobs:
+  task-documentation-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Check out Odoo
+        uses: actions/checkout@v2
+        with:
+          repository: odoo/odoo
+          ref: "16.0"
+          fetch-depth: 1
+          path: odoo
+      - name: Configuration
+        run: |
+          sudo apt update
+          sudo apt install \
+              expect \
+              expect-dev \
+              libevent-dev \
+              libldap2-dev \
+              libsasl2-dev \
+              libxml2-dev \
+              libxslt1-dev \
+              nodejs \
+              python3-lxml \
+              python3-passlib \
+              python3-psycopg2 \
+              python3-serial \
+              python3-simplejson \
+              python3-werkzeug \
+              python3-yaml \
+              unixodbc-dev
+      - name: Requirements Installation
+        run: |
+          pip install -q -r odoo/requirements.txt
+          pip install --ignore-installed \
+              git+https://github.com/legalsylvain/openupgradelib.git@master-fix-description
+          pip install sphinx
+      - name: OpenUpgrade Docs
+        run: |
+          # try to build the documentation
+          sh ./build_openupgrade_docs
