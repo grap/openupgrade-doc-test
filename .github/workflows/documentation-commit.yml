@@ -1,21 +1,19 @@
-# This workflow will install Python dependencies, run tests and lint with a
-# single version of Python. For more information see:
-# https://help.github.com/actions/language-and-framework-guides\
-# /using-python-with-github-actions
+# On each push in 'documentation' branch,
+# build documentation and push the changes to be deployed
+# on the website https://oca.github.io/OpenUpgrade/
 
-name: Build and commit documentation
+name: Build, Commit and Push Documentation
 
 on:
   push:
     branches: ["documentation"]
-  workflow_call: # Make the workflow callable by other workflow
-
 
 jobs:
-  documentation-build-commit:
+  documentation-commit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -47,6 +45,9 @@ jobs:
               python3-werkzeug \
               python3-yaml \
               unixodbc-dev
+        # TODO : switch the openupgradelib url
+        # to https://github.com/OCA/openupgradelib.git@master
+        # once https://github.com/OCA/openupgradelib/pull/314 is merged
       - name: Requirements Installation
         run: |
           pip install -q -r odoo/requirements.txt
@@ -57,6 +58,7 @@ jobs:
         run: |
           # try to build the documentation
           sh ./build_openupgrade_docs
+
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
