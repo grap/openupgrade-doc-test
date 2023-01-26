@@ -1,0 +1,9 @@
+name: Build and commit documentation - Schedule
+
+on:
+  schedule: # Schedule the job to run each hour
+    - cron: '0 * * * *'
+
+jobs:
+  call-workflow-documentation-branch:
+    uses: OCA/OpenUpgrade/.github/workflows/documentation-commit.yml@documentation
