@@ -5,6 +5,7 @@ TEST. TEST. TEST !
 
 TEST 3. TEST 3. TEST 3.
 
+TEST 4. direct push.
 
 Odoo is an open source business application suite and development platform.
 This project, *OpenUpgrade*, aims to provide an Open Source upgrade path for
