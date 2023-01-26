@@ -15,7 +15,9 @@ jobs:
   documentation-build-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Git Checkout Documentation Branch
+        uses: actions/checkout@v2
+        with: { ref: documentation }
       - name: Set up Python
         uses: actions/setup-python@v4
         with:

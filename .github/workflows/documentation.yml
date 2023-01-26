@@ -12,7 +12,9 @@ jobs:
   documentation:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Git checkout
+        uses: actions/checkout@v2
+        with: { ref: documentation }
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
