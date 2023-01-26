@@ -1,9 +1,7 @@
-# This workflow will install Python dependencies, run tests and lint with a
-# single version of Python. For more information see:
-# https://help.github.com/actions/language-and-framework-guides\
-# /using-python-with-github-actions
+# On each Pull request against branch documentation,
+# build documentation and check that the sphinx build works
 
-name: OpenUpgrade documentation
+name: Checks that the documentation works
 
 on:
   pull_request:
@@ -13,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:

@@ -27,7 +27,7 @@ for line in $DOC_PARTS; do
     wget -q $BASE_URL/$line -O $SOURCE_DIR/$name
 done
 
-# TEST (TO REMOVE)
+# TODO: Remove this test.
 wget -q https://raw.githubusercontent.com/grap/OpenUpgrade/16.0-TEST-documentation-refactor/docsource/modules150-160.rst -O $SOURCE_DIR/modules150-160.rst
 
 
