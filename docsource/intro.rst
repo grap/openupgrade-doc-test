@@ -2,6 +2,8 @@ Introduction
 ============
 
 test Changes 1.
+test Changes 2.
+test Changes 3.
 
 Odoo is an open source business application suite and development platform.
 This project, *OpenUpgrade*, aims to provide an Open Source upgrade path for
