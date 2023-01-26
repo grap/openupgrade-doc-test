@@ -1,9 +1,0 @@
-name: TEST 2 Build and commit documentation - Schedule
-
-on:
-  schedule: # Schedule the job to run each hour
-    - cron: '30 * * * *'
-
-jobs:
-  call-workflow-documentation-branch:
-    uses: grap/openupgrade-doc-test/.github/workflows/documentation-commit.yml@documentation
