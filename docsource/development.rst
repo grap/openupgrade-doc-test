@@ -128,6 +128,7 @@ Learning resources
 .. toctree::
    :maxdepth: 2
 
+   odoo_upgrade
    migrationmanager
    devfaq
 
